@@ -1,5 +1,5 @@
 import os
-from .secret_settings import *
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -8,6 +8,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 ALLOWED_HOSTS = []
+
+DEBUG = True
+
+SECRET_KEY = os.environ['ONEFIT_SECRET_KEY']
+# Get a secret key off djecrety.io and add it to your environment variables under 'ONEFIT_SECRET_KEY'
 
 
 # Application definition
