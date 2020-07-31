@@ -1,0 +1,12 @@
+{% extends "users/base.html" %}
+{% block content %}
+{% load l10n %}
+  {% for workout in workouts %}
+    <article class="media content-section">
+      <div class="media-body">
+        <h3><a class="article-title" href="{% url 'workouts-detail' workout.id %}">{{ workout.date_created|date:'h:i a - F j, Y' }}</a></h3>
+        <p class="article-content">{{ workout.notes }}</p>
+      </div>
+    </article>
+  {% endfor %}
+{% endblock content %}

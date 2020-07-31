@@ -18,6 +18,7 @@ SECRET_KEY = os.environ['ONEFIT_SECRET_KEY']
 # Application definition
 
 INSTALLED_APPS = [
+    'workouts.apps.WorkoutsConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
     'django.contrib.admin',
@@ -36,6 +37,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'dynamic_tz.middleware.TimezoneMiddleware',
 ]
 
 ROOT_URLCONF = 'onefit.urls'
@@ -94,13 +97,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
-
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
