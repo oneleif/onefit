@@ -3,6 +3,7 @@ from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 
+
 def home(request):
     return render(request, 'users/home.html', {'title':'Home'})
 
@@ -42,3 +43,4 @@ def profile(request):
         'p_form': p_form
     }
     return render(request, 'users/profile.html', context)
+

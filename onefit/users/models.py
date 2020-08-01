@@ -22,22 +22,3 @@ class Profile(models.Model):
             output_size=(300,300)
             img.thumbnail(output_size)
             img.save(self.image.path)
-
-
-class Workout(models.Model):
-    date = models.DateTimeField()
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    notes = models.TextField()
-
-class Exercises(models.Model):
-    name = models.CharField(max_length=50)
-
-class Exercise(models.Model):
-    workout_id = models.ForeignKey(Workout, on_delete=models.CASCADE)
-    order = models.IntegerField(unique=True)
-    exercise_id = models.ForeignKey(Exercises, on_delete=models.CASCADE)
-
-class Set(models.Model):
-    order = models.IntegerField(unique=True)
-    weight = models.FloatField()
-    reps = models.IntegerField()
