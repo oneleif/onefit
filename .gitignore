@@ -1,4 +1,5 @@
 .venv
+.pyenv
 secret_settings.py
 
 node_modules
