@@ -1,16 +1,12 @@
-from django.urls import path
-from .views import (
-    WorkoutsListView,
-    WorkoutsCreateView,
-    WorkoutsDeleteView,
-    WorkoutsDetailView,
-    WorkoutsUpdateView,
+from rest_framework import routers
+from .api import (
+    ExerciseViewset, SetViewset, WorkoutViewset,
 )
 
-urlpatterns = [
-    path('', WorkoutsListView.as_view(), name='workouts-list'),
-    path('new/', WorkoutsCreateView.as_view(), name='workouts-create'),
-    path('<int:pk>/', WorkoutsDetailView.as_view(), name='workouts-detail'),
-    path('<int:pk>/update/', WorkoutsUpdateView.as_view(), name='workouts-update'),
-    path('<int:pk>/delete/', WorkoutsDeleteView.as_view(), name='workouts-delete'),
-]
+router = routers.DefaultRouter()
+router.register('api/workouts', WorkoutViewset, 'workouts')
+router.register('api/sets', SetViewset, 'sets')
+router.register('api/exercises', ExerciseViewset, 'exercises')
+router.register('api/exercise_options', WorkoutViewset, 'workouts')
+
+urlpatterns = router.urls

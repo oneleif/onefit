@@ -11,13 +11,15 @@ ALLOWED_HOSTS = []
 
 DEBUG = True
 
-SECRET_KEY = os.environ['ONEFIT_SECRET_KEY']
+SECRET_KEY = os.environ.get('ONEFIT_SECRET_KEY')
 # Get a secret key off djecrety.io and add it to your environment variables under 'ONEFIT_SECRET_KEY'
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'frontend',
+    'rest_framework',
     'workouts.apps.WorkoutsConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
