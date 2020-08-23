@@ -15,25 +15,24 @@ export class Workouts extends Component {
   render() {
     return (
       <Fragment>
-        {/* example table */}
         <h2>Workouts</h2>
         <table className="table table-striped">
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Message</th>
+              <th>date created</th>
+              <th>notes</th>
+              <th>username</th>
               <th />
             </tr>
           </thead>
           <tbody>
             {this.props.workouts.map((workout) => (
               <tr key={workout.id}>
-                <td key={workout.id}></td>
-                <td key={workout.name}></td>
-                <td key={workout.email}></td>
-                <td key={workout.message}></td>
+                <td>{workout.id}</td>
+                <td>{workout.date_created}</td>
+                <td>{workout.notes}</td>
+                <td>{workout.user_name}</td>
                 <td>
                   <button className="btn btn-danger btn-sm">Delete</button>
                 </td>
