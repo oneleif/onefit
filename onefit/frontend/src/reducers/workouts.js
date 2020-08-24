@@ -9,7 +9,7 @@ export default function (state = initialState, action) {
     case GET_WORKOUTS:
       return {
         ...state,
-        leads: action.payload,
+        workouts: action.payload,
       };
     default:
       return state;
