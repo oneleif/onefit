@@ -11,7 +11,7 @@ from users.models import Profile
 
 
 class Workout(models.Model):
-    date_created = models.DateTimeField(default=timezone.now)
+    date = models.DateTimeField(default=timezone.now)
     user_name = models.ForeignKey(
         User, to_field="username", on_delete=models.CASCADE)
     notes = models.TextField()
