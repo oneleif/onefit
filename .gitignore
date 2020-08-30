@@ -1,6 +1,7 @@
 .venv
 .pyenv
 secret_settings.py
+.vscode
 
 node_modules
 

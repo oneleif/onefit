@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getWorkouts } from "../../actions/workouts";
+import { getWorkouts, deleteWorkout } from "../../actions/workouts";
 
 export class Workouts extends Component {
   static propTypes = {
     workouts: PropTypes.array.isRequired,
+    getWorkouts: PropTypes.func.isRequired,
+    deleteWorkout: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
@@ -20,7 +22,7 @@ export class Workouts extends Component {
           <thead>
             <tr>
               <th>ID</th>
-              <th>date created</th>
+              <th>date</th>
               <th>notes</th>
               <th>username</th>
               <th />
@@ -30,11 +32,17 @@ export class Workouts extends Component {
             {this.props.workouts.map((workout) => (
               <tr key={workout.id}>
                 <td>{workout.id}</td>
-                <td>{workout.date_created}</td>
+                <td>{workout.date}</td>
                 <td>{workout.notes}</td>
                 <td>{workout.user_name}</td>
                 <td>
-                  <button className="btn btn-danger btn-sm">Delete</button>
+                  <button
+                    onClick={this.props.deleteWorkout.bind(this, workout.id)}
+                    className="btn btn-danger btn-sm"
+                  >
+                    {" "}
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
@@ -49,4 +57,6 @@ const mapStateToProps = (state) => ({
   workouts: state.workouts.workouts,
 });
 
-export default connect(mapStateToProps, { getWorkouts })(Workouts);
+export default connect(mapStateToProps, { getWorkouts, deleteWorkout })(
+  Workouts
+);
